@@ -14,12 +14,15 @@ export function getInterview(state, interview) {
   if (!interview) {
     return null;
   } else {
-    let interviewer = state.interviewers[interview.interviewer];
-    return { ...interview, interviewer };
+    const interviewerInfo = state.interviewers[interview.interviewer]
+    return {
+      student: interview.student,
+      interviewer: interviewerInfo
+    };
   }
 }
 
-export function getInterviewsForDay(state, day) {
+export function getInterviewersForDay(state, day) {
   const filteredAppointments = [];
   state.days.forEach(element => {
     if (element.name === day) {
