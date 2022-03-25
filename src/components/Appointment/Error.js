@@ -1,32 +1,18 @@
 import React from 'react'
 
-
-export default function Show(props) {
+export default function Error(props) {
   return (
-    <main className="appointment__card appointment__card--show">
-      <section className="appointment__card-left">
-        <h2 className="text--regular">{props.student}</h2>
-        <section className="interviewer">
-          <h4 className="text--light">Interviewer</h4>
-          <h3 className="text--regular">{props.interviewer.name}</h3>
-        </section>
+    <main className="appointment__card appointment__card--error">
+      <section className="appointment__error-message">
+        <h1 className="text--semi-bold">Error</h1>
+        <h3 className="text--light">{props.message}</h3>
       </section>
-      <section className="appointment__card-right">
-        <section className="appointment__actions">
-          <img
-            className="appointment__actions-button"
-            src="images/edit.png"
-            alt="Edit"
-            onClick={props.onEdit}
-          />
-          <img
-            className="appointment__actions-button"
-            src="images/trash.png"
-            alt="Delete"
-            onClick={() => props.onDelete(props.interview)}
-          />
-        </section>
-      </section>
+      <img
+        className="appointment__error-close"
+        src="images/close.png"
+        alt="Close"
+        onClick={props.onClose}
+      />
     </main>
   )
 }
